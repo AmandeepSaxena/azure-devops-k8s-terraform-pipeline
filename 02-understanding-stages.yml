@@ -18,6 +18,19 @@ stages:
     - bash: echo $(Build.ArtifactsStagingDirectory)
     - bash: echo $(System.DefaultWorkingDirectory)
     - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: java -version
+    - bash: node --version
+    - bash: python --version
+    - bash: mvn -version
+    - bash: ls -R $(Build.ArtifactsStagingDirectory)
+    - task: CopyFiles@2
+      inputs:
+        SourceFolder: '$(Build.SourcesDirectory)'
+        Contents: |
+          **/*.yml
+          **/*.tf
+        TargetFolder: '$(Build.ArtifactsStagingDirectory)'
+    - bash: ls -R $(Build.ArtifactsStagingDirectory)    
 #   - stage: DevDeploy
 #   variables: 
 #     environment : Dev
