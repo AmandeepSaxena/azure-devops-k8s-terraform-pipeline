@@ -30,7 +30,7 @@ stages:
           **/*.yml
           **/*.tf
         TargetFolder: '$(Build.ArtifactStagingDirectory)'
-    - bash: ls -R $(Build.ArtifactsStagingDirectory)    
+    - bash: ls -R $(Build.ArtifactStagingDirectory)    
 #   - stage: DevDeploy
 #   variables: 
 #     environment : Dev
